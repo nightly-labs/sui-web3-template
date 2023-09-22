@@ -94,7 +94,7 @@ const StickyHeader: React.FC = () => {
                     console.log(txid)
                     toast.success('Transaction send!', {
                       action: {
-                        label: 'Show Transaction...',
+                        label: 'Show Transaction ',
                         onClick: () => {
                           // Open url in a new tab
                           window.open(`https://suiscan.xyz/mainnet/tx/${txid.digest}`, '_blank')
