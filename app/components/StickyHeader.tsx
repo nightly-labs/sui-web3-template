@@ -20,7 +20,7 @@ const StickyHeader: React.FC = () => {
             setUserAccount(account[0])
           }
         } catch (error) {
-          await adapter.disconnect()
+          await adapter.disconnect().catch(() => {})
           console.log(error)
         }
       }
@@ -54,8 +54,8 @@ const StickyHeader: React.FC = () => {
                   setUserAccount(account[0])
                 }
               } catch (error) {
-                await adapter.disconnect()
-                console.log(error)
+                // If error, disconnect ignore error
+                await adapter.disconnect().catch(() => {})
               }
             }}
             onDisconnect={async () => {
@@ -86,7 +86,6 @@ const StickyHeader: React.FC = () => {
                       )
                     )
                     const txid = await adapter.signAndExecuteTransactionBlock({
-                      // @ts-expect-error
                       transactionBlock,
                       chain: 'sui:mainnet',
                       account: userAccount,
@@ -116,7 +115,7 @@ const StickyHeader: React.FC = () => {
                 onClick={async () => {
                   const signMessage = async () => {
                     const adapter = await getAdapter()
-                    await adapter.signMessage({
+                    await adapter.signPersonalMessage({
                       message: new TextEncoder().encode('I love Nightly 🦊'),
                       account: userAccount,
                     })
