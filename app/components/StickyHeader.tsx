@@ -86,7 +86,7 @@ const StickyHeader: React.FC = () => {
                       )
                     )
                     const txid = await adapter.signAndExecuteTransactionBlock({
-                      transactionBlock,
+                      transactionBlock: transactionBlock as any,
                       chain: 'sui:mainnet',
                       account: userAccount,
                     })
