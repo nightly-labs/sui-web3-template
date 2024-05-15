@@ -14,7 +14,7 @@
   "dependencies": {
     "@mysten/sui.js": "^0.48.1",
     "@mysten/wallet-standard": "^0.9.0",
-    "@nightlylabs/wallet-selector-sui": "^0.3.1",
+    "@nightlylabs/wallet-selector-sui": "^0.3.2",
     "@react-spring/three": "9.1.1",
     "@react-spring/web": "9.1.1",
     "@react-three/drei": "4.1.8",
